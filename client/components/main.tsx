@@ -1,5 +1,5 @@
-import React from 'react'
-import DannyBeeImage from './assets/DannyBee.png' // Import the image
+import { Link } from 'react-router-dom'
+import DannyBeeImage from '../image/DannyBee.png' // Import the image
 
 export default function Main() {
   function handleClick(e) {
@@ -7,6 +7,7 @@ export default function Main() {
       console.log('you clicked')
     }
   }
+  const id = randomNumberGenerator(100, 150)
 
   return (
     <div className="main" style={{ display: 'flex', alignItems: 'center' }}>
@@ -17,10 +18,17 @@ export default function Main() {
       />{' '}
       {/* Use the imported image */}
       <button id="btn" onClick={handleClick}>
+        <Link to={`/game/${id}`}>
         Play Now
+        </Link>
       </button>
     </div>
   )
+}
+
+//utilities
+function randomNumberGenerator(min: number, max: number) {
+  return Math.floor(Math.random() * max - min + 1) + min
 }
 
 // //css
