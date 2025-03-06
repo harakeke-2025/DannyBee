@@ -1,8 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import request from 'superagent'
 import {
-  DisneyCollection,
-  Data,
   DataCollection,
 } from '../models/DisneyCharacters'
 //fetching disney characters data from https://api.disneyapi.dev/character
