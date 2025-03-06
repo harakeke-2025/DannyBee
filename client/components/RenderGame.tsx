@@ -46,7 +46,7 @@ export default function RenderGame() {
     setGuessingArr(letter.target.value)
   }
 
-  const checkIfCorrect = () => {
+  const checkForWin = () => {
     if (DisneyCharacter.name.toLowerCase() === input.toLocaleLowerCase()) {
       alert('YOU GOT THE SPELLING BEEEEE')
     } else {
@@ -64,11 +64,15 @@ export default function RenderGame() {
         />
       </div>
 
-      <>{/* {input character image here"} */}</>
+      <>{/* {input empty character _ _ _ _ _ _ _ _ slots"} */}</>
 
       <div>
         {alphabet.map((letter) => (
-          <button key={letter} className="button" onClick={handleInputChange}>
+          <button
+            key={letter}
+            className="rbg-blue-500 rounded border border-blue-700 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            onClick={handleInputChange}
+          >
             {letter}
           </button>
         ))}
