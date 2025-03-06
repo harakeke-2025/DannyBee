@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import DannyBeeImage from '../image/DannyBee.png'
 // import DannyBeeImage from './assets/DannyBee.png' // Import the image
 
 export default function Main() {
@@ -8,21 +9,18 @@ export default function Main() {
     }
   }
 
-  const id=randomNumberGeneraton(100,150)
-
+  const id = randomNumberGeneraton(1, 100)
 
   return (
     <div className="main" style={{ display: 'flex', alignItems: 'center' }}>
-      {/* <img
+      <img
         src={DannyBeeImage}
         alt="Danny Bee"
         style={{ marginRight: '10px' }}
-      />{' '} */}
+      />{' '}
       {/* Use the imported image */}
       <button id="btn" onClick={handleClick}>
-        <Link to={`/game/${id}`}>
-        Play Now
-        </Link>
+        <Link to={`/game/${id}`}>Play Now</Link>
       </button>
     </div>
   )

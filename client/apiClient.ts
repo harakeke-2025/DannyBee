@@ -1,8 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import request from 'superagent'
-import {  Data
- } from '../models/DisneyCharacters'
-
+import { DataCollection } from '../models/DisneyCharacters'
 
 // //fetching disney characters data from https://api.disneyapi.dev/character
 // export function useDisneyCharacters() {
@@ -17,7 +15,6 @@ import {  Data
 //   })
 // }
 
-
 //fetching disney character data from https://api.disneyapi.dev/character using id(currently hardcoded)
 export function useDisneyCharacter(id: number) {
   return useQuery({
@@ -26,7 +23,7 @@ export function useDisneyCharacter(id: number) {
       const res = await request.get(`https://api.disneyapi.dev/character/${id}`)
 
       //Only getting _id, name, imageUrl by using interface
-      return res.body as Data
+      return res.body as DataCollection
     },
   })
 }
