@@ -6,7 +6,7 @@ export interface DisneyCollection {
 
 export interface DataCollection {
   info: Info
-  data: Data[]
+  data: Data
 }
 
 export interface Data {
