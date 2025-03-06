@@ -18,9 +18,7 @@ export default function Main() {
       />{' '}
       {/* Use the imported image */}
       <button id="btn" onClick={handleClick}>
-        <Link to={`/game/${id}`}>
-        Play Now
-        </Link>
+        <Link to={`/game/${id}`}>Play Now</Link>
       </button>
     </div>
   )
