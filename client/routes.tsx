@@ -1,9 +1,11 @@
 import { createRoutesFromElements, Route } from 'react-router-dom'
 import DisneyCharacter from './components/DisneyCharacter'
+import Main from './components/Main'
 export default createRoutesFromElements(
-  // <Route path="/">
-  //   <Route index />
-  //   <Route path="game/:_id" element={<DisneyCharacter />} />
-  // </Route>,
-  <Route path="/" element={<DisneyCharacter />} />,
+  <Route path="/">
+    <Route index element={<Main />}/>
+    <Route path="game/:id" element={<DisneyCharacter />} />
+  </Route>
+  
+
 )
