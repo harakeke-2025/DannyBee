@@ -116,3 +116,43 @@
   font-size: larger;
   font-weight: 500;
 }
+
+#alphabtn {
+  background-color: rgba(247, 97, 43, 0.873);
+  border-color: #000;
+  margin-left: 4px;
+  margin: 3px;
+}
+
+.keyBoard {
+  text-align: center;
+  width: 500px;
+}
+
+.gamePage {
+  background-color: rgba(255, 179, 0, 0.858);
+  height: 100vh;
+  text-align: center;
+  font-weight: 900;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamePage h1 {
+  font-size: 50px;
+}
+
+.gamePage img {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+}
+
+#answer {
+  font-size: 50px;
+  padding: 20px;
+  text-align: center;
+}
