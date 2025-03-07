@@ -68,6 +68,7 @@ export default function DisneyCharacter() {
 
 
 
+
     const checkForWin = () => {
       const arrayToString = guessingArr.join('')
       console.log(arrayToString)
@@ -99,26 +100,38 @@ export default function DisneyCharacter() {
         <div>
           <h1>{isReveal ? name : 'Guess the character'}</h1>
 
+
           <img src={imageUrl} alt={name || 'Image'} />
         </div>
         <div className="flex flex-row">
           {guessingArr.map((item, index) => (
             <p
+
+              id="answer"
+
               className="lg:text-xx1 sm:text-md px-2 md:text-xl"
               key={index}
             >{`${item}  `}</p>
           ))}
         </div>
+
         <div>
+
+        <div className="keyBoard">
+
           {alphabet.map((letter) => (
             <button
               key={letter}
               className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
+
+
+              id="alphabtn"
               onClick={() => handleInputChange(letter)}
             >
               {letter}
             </button>
           ))}
+
           <button
             className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
             onClick={checkForWin}
@@ -129,4 +142,10 @@ export default function DisneyCharacter() {
       </>
     )
   }
+
+        </div>
+      </div>
+    </>
+  )
+
 }
