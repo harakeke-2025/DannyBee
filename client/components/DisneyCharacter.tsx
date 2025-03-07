@@ -75,29 +75,33 @@ export default function DisneyCharacter() {
 
   return (
     <>
-      <div>
-        <h1>{name}</h1>
+      <div className="gamePage">
+        <div>
+          <h1>{name}</h1>
 
-        <img src={imageUrl} alt={name || 'Image'} />
-      </div>
-      <div className="flex flex-row">
-        {guessingArr.map((item, index) => (
-          <p
-            className="lg:text-xx1 sm:text-md px-2 md:text-xl"
-            key={index}
-          >{`${item}  `}</p>
-        ))}
-      </div>
-      <div>
-        {alphabet.map((letter) => (
-          <button
-            key={letter}
-            className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
-            onClick={() => handleInputChange(letter)}
-          >
-            {letter}
-          </button>
-        ))}
+          <img src={imageUrl} alt={name || 'Image'} />
+        </div>
+        <div className="flex flex-row">
+          {guessingArr.map((item, index) => (
+            <p
+              id="answer"
+              className="lg:text-xx1 sm:text-md px-2 md:text-xl"
+              key={index}
+            >{`${item}  `}</p>
+          ))}
+        </div>
+        <div className="keyBoard">
+          {alphabet.map((letter) => (
+            <button
+              key={letter}
+              className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
+              id="alphabtn"
+              onClick={() => handleInputChange(letter)}
+            >
+              {letter}
+            </button>
+          ))}
+        </div>
       </div>
     </>
   )
