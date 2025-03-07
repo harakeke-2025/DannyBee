@@ -77,20 +77,19 @@ export default function DisneyCharacter() {
 
         <img src={imageUrl} alt={name || 'Image'} />
       </div>
-      <div>
-        <p>
-          {guessingArr.map((item, index) => (
-            <input type="text" placeholder="" key={index}>
-              {item}
-            </input>
-          ))}
-        </p>
+      <div className="flex flex-row">
+        {guessingArr.map((item, index) => (
+          <p
+            className="lg:text-xx1 sm:text-md px-2 md:text-xl"
+            key={index}
+          >{`${item}  `}</p>
+        ))}
       </div>
       <div>
         {alphabet.map((letter) => (
           <button
             key={letter}
-            className="rbg-blue-500 rounded border border-blue-700 px-4 py-2 font-bold text-white hover:bg-blue-700"
+            className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
             onClick={() => handleInputChange(letter)}
           >
             {letter}
@@ -100,3 +99,13 @@ export default function DisneyCharacter() {
     </>
   )
 }
+
+// function buildWord(letters, targetLength) {
+//   for (const letter of letters) {
+//     currentWord += letter;
+//     if (currentWord.length === targetLength) {
+//       return currentWord; //Return the word when it reaches the target length
+//     }
+//   }
+//   return currentWord; //Return the word even if it doesn't reach the target length
+// }
