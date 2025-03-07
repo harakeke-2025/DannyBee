@@ -80,7 +80,9 @@ export default function DisneyCharacter() {
       <div>
         <p>
           {guessingArr.map((item, index) => (
-            <p key={index}>{item}</p>
+            <input type="text" placeholder="" key={index}>
+              {item}
+            </input>
           ))}
         </p>
       </div>
