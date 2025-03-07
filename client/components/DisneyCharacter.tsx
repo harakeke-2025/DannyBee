@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useDisneyCharacter } from '../apiClient'
 import LoadingPage from './LoadingPage'
 import { useEffect, useState } from 'react'
+import JSConfetti from 'js-confetti'
 
 export default function DisneyCharacter() {
   // const disneyCollection = useDisneyCharacters()
@@ -17,7 +18,7 @@ export default function DisneyCharacter() {
 
   const [isReveal, setIsReveal] = useState(false)
 
-  const [funnyText, setFunnyText] = useEffect()
+  // const [funnyText, setFunnyText] = useEffect()
 
   if (disneyCharacters.isError) return <p data-testid="error">error</p>
   if (disneyCharacters.isPending) return <LoadingPage />
@@ -65,10 +66,7 @@ export default function DisneyCharacter() {
 
       // setGuessingArr(...letter.target.value)
     }
-
-
-
-
+const jsConfetti = new JSConfetti()
     const checkForWin = () => {
       const arrayToString = guessingArr.join('')
       console.log(arrayToString)
@@ -76,39 +74,27 @@ export default function DisneyCharacter() {
       if (arrayToString === name?.toLowerCase()) {
         alert('YOU GOT THE DANNY BEEEEEEEEEE')
         setIsReveal(true)
+        jsConfetti.addConfetti({
+          emojis: ['🐝','🍯'],
+          confettiNumber: 200
+       })
       } else {
         alert('try again'!)
       }
     }
 
-    function buildWord(letters, targetLength) {
-      for (const letter of letters) {
-        currentWord += letter
-        if (currentWord.length === targetLength) {
-          return currentWord //Return the word when it reaches the target length
-        }
-      }
-      return currentWord //Return the word even if it doesn't reach the target length
-    }
-
     return (
       <>
-      <div> 
-
-
-      </div>
+        <div className='gamePage'>
         <div>
           <h1>{isReveal ? name : 'Guess the character'}</h1>
-
 
           <img src={imageUrl} alt={name || 'Image'} />
         </div>
         <div className="flex flex-row">
           {guessingArr.map((item, index) => (
             <p
-
               id="answer"
-
               className="lg:text-xx1 sm:text-md px-2 md:text-xl"
               key={index}
             >{`${item}  `}</p>
@@ -116,36 +102,28 @@ export default function DisneyCharacter() {
         </div>
 
         <div>
+          <div className="keyBoard">
+            {alphabet.map((letter) => (
+              <button
+                key={letter}
+                className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
+                id="alphabtn"
+                onClick={() => handleInputChange(letter)}
+              >
+                {letter}
+              </button>
+            ))}
 
-        <div className="keyBoard">
-
-          {alphabet.map((letter) => (
             <button
-              key={letter}
               className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
-
-
-              id="alphabtn"
-              onClick={() => handleInputChange(letter)}
+              onClick={checkForWin}
             >
-              {letter}
+              Check 4 win!
             </button>
-          ))}
-
-          <button
-            className="rbg-blue-500 text-blue rounded border border-blue-700 px-4 py-2 font-bold hover:bg-blue-700"
-            onClick={checkForWin}
-          >
-            Check 4 win!
-          </button>
+          </div>
+        </div>
         </div>
       </>
     )
   }
-
-        </div>
-      </div>
-    </>
-  )
-
 }
