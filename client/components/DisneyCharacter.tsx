@@ -1,9 +1,12 @@
 import { useParams } from 'react-router-dom'
-import { useDisneyCharacter } from '../apiClient'
+import { useDisneyCharacter, useDisneyCharacters } from '../apiClient'
 import LoadingPage from './LoadingPage'
 import { useState } from 'react'
 
 export default function DisneyCharacter() {
+  // const disneyCollection = useDisneyCharacters()
+  // const { index } = useParams()
+  // const disneyCharacters = Array(disneyCollection)[Number(index)]
   const { id } = useParams()
 
   const disneyCharacters = useDisneyCharacter(Number(id))
@@ -15,7 +18,7 @@ export default function DisneyCharacter() {
   // set the initial state to empty
   const [input, setInput] = useState()
 
-  if (disneyCharacters.isError) return <p>pending</p>
+  if (disneyCharacters.isError) return <p data-testid="error">error</p>
   if (disneyCharacters.isPending) return <LoadingPage />
 
   // get current character image/name and place in  Disneycharacter
